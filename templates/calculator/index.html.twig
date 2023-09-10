@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+     {% block body %}
+         <div class="container">
+             <h1>Калькулятор</h1>
+             {{ form_start(form) }}
+             <div class="row">
+                 <div class="col-md-3">
+                     <div class="form-group">
+                         {{ form_row(form.arg1) }}
+                     </div>
+                 </div>
+                 <div class="col-md-2">
+                     <div class="form-group">
+                         {{ form_row(form.operation) }}
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <div class="form-group">
+                         {{ form_row(form.arg2) }}
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="form-group">
+                         {{ form_row(form.calculate) }}
+                     </div>
+                 </div>
+             </div>
+             {{ form_end(form) }}
+             {% if result is defined %}
+                 <div class="alert alert-success" role="alert">
+                     <b> {{ expression  }} = {{ result }}</b>
+                 </div>
+             {% endif %}
+         </div>
+
+     {% endblock %}
