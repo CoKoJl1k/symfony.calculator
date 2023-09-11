@@ -9,10 +9,10 @@ Attention ports used:
 9000 - app
 
 /* Run APP */ 
-docker-compose build app-calc
-docker-compose up -d 
-
+docker-compose build
+docker-compose up -d
 docker-compose exec app-calc composer install
+
 docker-compose exec app-calc php bin/console make:migration
 docker-compose exec app-calc php bin/console doctrine:migrations:migrate
 docker-compose exec app-calc php bin/phpunit
