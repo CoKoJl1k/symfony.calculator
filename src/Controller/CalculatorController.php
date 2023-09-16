@@ -21,6 +21,7 @@ class CalculatorController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
+
             $result = $calculatorService->calculate($data['arg1'], $data['operation'], $data['arg2']);
 
             return $this->render('calculator/index.html.twig', [
