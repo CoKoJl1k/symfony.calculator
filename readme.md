@@ -29,3 +29,4 @@ composer require symfony/messenger symfony/workflow
 docker-compose down --volumes --rmi all
 docker system prune -a --volumes -f
 
+git rm --cached -r .idea/  --  remove files in git 

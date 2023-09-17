@@ -59,6 +59,22 @@ services:
     networks:
       - app-calc-network
 
+  rabbitmq:
+    image: rabbitmq:3.10.7-management
+    container_name: rabbitmq-calc
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmuser
+      - RABBITMQ_DEFAULT_PASS=rmpassword
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    ports:
+      - "15672:15672"
+    networks:
+      - app-calc-network
+
 #Docker Networks
 networks:
   app-calc-network:
